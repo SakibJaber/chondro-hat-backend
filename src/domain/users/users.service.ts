@@ -72,8 +72,8 @@ export class UsersService {
 
     const { password: _, ...result } = user; // Exclude password from the result
     return {
-      user: result,
       access_token: token, // Return the token
+      user: result,
     };
   }
 

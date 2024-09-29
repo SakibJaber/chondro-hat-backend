@@ -37,6 +37,8 @@ export class UsersController {
     return this.usersService.login(loginDto);
   }
 
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @RolesDecorator(Roles.ADMIN) 
   @Get('all')
   async findAll(): Promise<UserEntity[]> {
     return await this.usersService.findAll();

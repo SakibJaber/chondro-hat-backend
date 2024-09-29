@@ -16,5 +16,5 @@ export class CreateUserDto {
   password: string;
 
   @IsEnum(Roles, { message: 'Invalid role' })
-  roles: Roles;  // Ensure it expects Roles enum
+  roles: Roles = Roles.USER // Ensure it expects Roles enum
 }
