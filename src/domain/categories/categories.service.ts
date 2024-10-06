@@ -12,6 +12,7 @@ export class CategoriesService {
     @InjectRepository(CategoryEntity)
     private readonly categoryRepository: Repository<CategoryEntity>,
   ) {}
+
   async create(
     createCategoryDto: CreateCategoryDto,
     user: UserEntity,

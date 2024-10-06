@@ -1,9 +1,11 @@
+import { ProductEntity } from 'src/domain/products/entity/product.entity';
 import { UserEntity } from 'src/domain/users/entity/user.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   Timestamp,
   UpdateDateColumn,
@@ -22,6 +24,9 @@ export class CategoryEntity {
 
   @ManyToOne(() => UserEntity, (user) => user.categories)
   addedBy: UserEntity;
+
+  @OneToMany(() => ProductEntity, (prod) => prod.category)
+  products: ProductEntity[];
 
   @CreateDateColumn()
   createdAt: Date;
